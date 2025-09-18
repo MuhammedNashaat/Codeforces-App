@@ -33,7 +33,48 @@ fun UserInfo(
                 rating = userUi.rating,
                 fontSize = 30.sp
             )
-
+            Row {
+                Text(
+                    text = userUi.country + ",",
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+                Text(
+                    text = userUi.city,
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+            }
+            Row {
+                Text(
+                    text = "Contest rating: ",
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+                Text(
+                    text = userUi.rating.toString(),
+                    color = colorRating(userUi.rating)
+                )
+            }
+            Row {
+                Text(
+                    text = "Max rating: ",
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+                Text(
+                    text = userUi.maxRank + ", " + userUi.maxRating.toString(),
+                    color = colorRating(userUi.maxRating)
+                )
+            }
+            Text(
+                text = "Contribution: " + userUi.contribution,
+                color = MaterialTheme.colorScheme.onSurface
+            )
+            Text(
+                text = "Friend of: ${userUi.friendOfCount} users",
+                color = MaterialTheme.colorScheme.onSurface
+            )
+            Text(
+                text = userUi.email,
+                color = MaterialTheme.colorScheme.onSurface
+            )
         }
         Box {
             //here is the photo
@@ -69,7 +110,7 @@ fun UserInfoPreview(){
     CodeforcesAppTheme {
         UserInfo(
             userUi = userUiPreview,
-            modifier = Modifier.background(color = MaterialTheme.colorScheme.background)
+            modifier = Modifier.background(color = MaterialTheme.colorScheme.surface)
         )
     }
 }

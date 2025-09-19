@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.codeforcesapp.codeforces.presentation.UserInfo
+import com.example.codeforcesapp.codeforces.presentation.userUiPreview
 import com.example.codeforcesapp.ui.theme.CodeforcesAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,8 +22,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             CodeforcesAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                    UserInfo(
+                        userUi = userUiPreview,
                         modifier = Modifier.padding(innerPadding)
                     )
                 }

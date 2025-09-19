@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 import com.example.codeforcesapp.codeforces.presentation.models.UserUi
 import com.example.codeforcesapp.ui.theme.CodeforcesAppTheme
 
@@ -76,9 +77,11 @@ fun UserInfo(
                 color = MaterialTheme.colorScheme.onSurface
             )
         }
-        Box {
-            //here is the photo
-        }
+        //here is the photo
+        AsyncImage(
+            model = userUi.titlePhoto,
+            contentDescription = null
+        )
     }
 }
 

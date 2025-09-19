@@ -59,4 +59,7 @@ dependencies {
 
     implementation(libs.coil.compose)
 
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.cio)
+
 }

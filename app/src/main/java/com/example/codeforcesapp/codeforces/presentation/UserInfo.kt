@@ -4,10 +4,19 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
@@ -20,10 +29,21 @@ fun UserInfo(
     modifier: Modifier
 )
 {
+    var search by remember { mutableStateOf(TextFieldValue("")) }
+
     Row (
         modifier = modifier
     ){
         Column {
+            TextField(
+                value = search,
+                onValueChange = {search = it}
+            )
+            Button(
+                onClick = { println(search.text)}
+            ) {
+                Text(text = "Search")
+            }
             Text(
                 text = userUi.rank,
                 color = colorRating(userUi.rating),

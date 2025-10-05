@@ -19,9 +19,14 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.LifecycleCoroutineScope
 import coil.compose.AsyncImage
+import com.example.codeforcesapp.codeforces.data.APICalls
 import com.example.codeforcesapp.codeforces.presentation.models.UserUi
 import com.example.codeforcesapp.ui.theme.CodeforcesAppTheme
+import com.example.codeforcesapp.xCalls
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 @Composable
 fun UserInfo(
@@ -40,7 +45,9 @@ fun UserInfo(
                 onValueChange = {search = it}
             )
             Button(
-                onClick = { println(search.text)}
+                onClick = {
+                    println(search.text)
+                }
             ) {
                 Text(text = "Search")
             }

@@ -11,7 +11,7 @@ import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 import io.ktor.client.statement.HttpResponse
 
-class APICalls(
+class CodeForcesAPIImpl(
     private val httpClient: HttpClient
 ):CodeForcesAPI{
     override suspend fun getUser(
@@ -22,11 +22,9 @@ class APICalls(
         ){
             parameter("handles",handles)
         }
-        val r:UserResponseDto = result.body()
-        val userDto:UserDto = r.result[0]
+        val userResponseDto:UserResponseDto = result.body()
+        val userDto:UserDto = userResponseDto.result[0]
         val user:User = userDto.toUser()
-        println("here is the output")
-        println(user)
         return user
     }
 }

@@ -24,6 +24,7 @@ object HttpClientFactory {
             install(ContentNegotiation){
                 json(
                     json = Json {
+                        //explicitNulls = false
                         ignoreUnknownKeys = true
                     }
                 )

@@ -4,5 +4,5 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class UserResponseDto (
-    val data: List<UserDto>
+    val result: List<UserDto>
 )

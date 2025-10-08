@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.lifecycleScope
 import com.example.codeforcesapp.codeforces.core.data.networking.HttpClientFactory
 import com.example.codeforcesapp.codeforces.data.APICalls
+import com.example.codeforcesapp.codeforces.data.mappers.toUser
 import com.example.codeforcesapp.codeforces.data.networking.dto.UserDto
 import com.example.codeforcesapp.codeforces.data.networking.dto.UserResponseDto
 import com.example.codeforcesapp.codeforces.domain.CodeForcesAPI
@@ -35,11 +36,13 @@ class MainActivity : ComponentActivity() {
         val Http:HttpClient = HttpClientFactory.create(CIO.create())
         GlobalScope.launch {
             val response = Http.get(
-                urlString = "https://codeforces.com/api/user.info?handles=Benq"
+                urlString = "https://codeforces.com/api/user.info?handles=DmitriyH"
             )
             print(response)
             println("-------")
-            //println(response.body<UserResponseDto>())
+            println(response.body<UserResponseDto>().result.map { it.toUser() })
+            //val endResult:List<User>
+            //val res = response.body<UserResponseDto>()
         }
         setContent {
             CodeforcesAppTheme {

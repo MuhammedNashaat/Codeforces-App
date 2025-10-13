@@ -1,5 +1,7 @@
 package com.example.codeforcesapp.codeforces.presentation.models
 
+import com.example.codeforcesapp.codeforces.domain.User
+
 data class UserUi(
     val handle: String,
     val email: String,
@@ -21,3 +23,27 @@ data class UserUi(
     val avatar: String,
     val titlePhoto: String
 )
+
+fun User.toUserUi():UserUi{
+    return UserUi(
+        handle = this.handle,
+        email = this.email,
+        vkId = this.vkId,
+        openId = this.openId,
+        firstName = this.firstName,
+        lastName = this.lastName,
+        country = this.country,
+        city = this.city,
+        organization = this.organization,
+        contribution = this.contribution,
+        rank = this.rank,
+        rating = this.rating,
+        maxRank = this.maxRank,
+        maxRating = this.maxRating,
+        lastOnlineTimeSeconds = this.lastOnlineTimeSeconds,
+        registrationTimeSeconds = this.registrationTimeSeconds,
+        friendOfCount = this.friendOfCount,
+        avatar = this.avatar,
+        titlePhoto = this.titlePhoto
+    )
+}

@@ -3,28 +3,17 @@ package com.example.codeforcesapp.codeforces.presentation.user_info
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.example.codeforcesapp.Http
-import com.example.codeforcesapp.codeforces.data.CodeForcesAPIImpl
 import com.example.codeforcesapp.codeforces.presentation.TextRank
 import com.example.codeforcesapp.codeforces.presentation.colorRating
 import com.example.codeforcesapp.codeforces.presentation.models.UserUi
 import com.example.codeforcesapp.ui.theme.CodeforcesAppTheme
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 @Composable
 fun UserInfoScreen(
@@ -32,26 +21,11 @@ fun UserInfoScreen(
     modifier: Modifier
 )
 {
-    var search by remember { mutableStateOf(TextFieldValue("")) }
 
     Row (
         modifier = modifier
     ){
         Column {
-            TextField(
-                value = search,
-                onValueChange = {search = it}
-            )
-            Button(
-                onClick = {
-                    //just for testing
-                    GlobalScope.launch {
-                        CodeForcesAPIImpl(Http).getUser(search.text)
-                    }
-                }
-            ) {
-                Text(text = "Search")
-            }
             Text(
                 text = userUi.rank,
                 color = colorRating(userUi.rating),

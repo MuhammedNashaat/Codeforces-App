@@ -30,7 +30,7 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun SearchUser(
-
+    onActions: (UserInfoActions) -> Unit
 ){
     var search by remember { mutableStateOf(TextFieldValue("")) }
     Row(
@@ -49,10 +49,14 @@ fun SearchUser(
 
         Button(
             onClick = {
+                onActions(
+                    UserInfoActions.OnSearchUserClick(handle = search.text)
+                )
                 //just for testing
-                GlobalScope.launch {
+                /*GlobalScope.launch {
                     CodeForcesAPIImpl(Http).getUser(search.text)
                 }
+                */
             },
             shape = RoundedCornerShape(15.dp),
             modifier = Modifier.padding(start = 10.dp)
@@ -67,6 +71,8 @@ fun SearchUser(
 fun SearchUserPreview()
 {
     CodeforcesAppTheme {
-        SearchUser()
+        SearchUser(
+            onActions = {}
+        )
     }
 }

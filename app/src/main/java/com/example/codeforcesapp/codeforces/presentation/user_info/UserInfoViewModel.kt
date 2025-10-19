@@ -16,6 +16,14 @@ class UserInfoViewModel(
     val state = _state
         .onStart {  }
 
+    fun onAction(actions: UserInfoActions){
+        when (actions){
+            is UserInfoActions.OnSearchUserClick -> {
+                getUserInfo(actions.handle)
+            }
+        }
+    }
+
     private fun getUserInfo(handles: String){
         viewModelScope.launch {
             _state.update { it.copy(isLoading = true) }

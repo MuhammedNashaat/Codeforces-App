@@ -3,13 +3,18 @@ package com.example.codeforcesapp.codeforces.presentation.user_info
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.PreviewLightDark
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.example.codeforcesapp.R
 import com.example.codeforcesapp.codeforces.presentation.TextRank
 import com.example.codeforcesapp.codeforces.presentation.colorRating
 import com.example.codeforcesapp.codeforces.presentation.models.UserUi
@@ -21,7 +26,6 @@ fun UserInfoScreen(
     modifier: Modifier
 )
 {
-
     Row (
         modifier = modifier
     ){
@@ -35,6 +39,12 @@ fun UserInfoScreen(
                 text = userUi.handle,
                 rating = userUi.rating,
                 fontSize = 30.sp
+            )
+            AsyncImage(
+                model = userUi.titlePhoto,
+                contentDescription = null,
+                placeholder = painterResource(R.drawable.ic_launcher_background),
+                modifier = Modifier.height(200.dp).width(200.dp)
             )
             Row {
                 Text(
@@ -78,12 +88,8 @@ fun UserInfoScreen(
                 text = userUi.email,
                 color = MaterialTheme.colorScheme.onSurface
             )
+
         }
-        //here is the photo
-        AsyncImage(
-            model = userUi.titlePhoto,
-            contentDescription = null
-        )
     }
 }
 

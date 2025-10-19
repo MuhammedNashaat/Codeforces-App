@@ -7,4 +7,5 @@ import com.example.codeforcesapp.codeforces.presentation.models.UserUi
 data class UserInfoState(
     val userUi: UserUi? = null,
     val isLoading: Boolean = false,
+    //val searchFieldHandle: String? = null
 )

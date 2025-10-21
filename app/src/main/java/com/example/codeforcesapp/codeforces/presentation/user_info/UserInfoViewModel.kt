@@ -5,7 +5,9 @@ import androidx.lifecycle.viewModelScope
 import com.example.codeforcesapp.codeforces.domain.CodeForcesAPI
 import com.example.codeforcesapp.codeforces.presentation.models.toUserUi
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
@@ -14,7 +16,15 @@ class UserInfoViewModel(
 ): ViewModel(){
     private val _state = MutableStateFlow(UserInfoState())
     val state = _state
-        .onStart {  }
+        /*
+        .onStart {
+            _state.update { it.copy(userUi = null, isLoading = false) }
+        }
+        .stateIn(
+            viewModelScope,
+            SharingStarted.WhileSubscribed(5000L),
+            UserInfoState()
+        )*/
 
     fun onAction(actions: UserInfoActions){
         when (actions){

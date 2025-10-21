@@ -22,7 +22,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import com.example.codeforcesapp.Http
 import com.example.codeforcesapp.codeforces.data.CodeForcesAPIImpl
 import com.example.codeforcesapp.ui.theme.CodeforcesAppTheme
 import kotlinx.coroutines.GlobalScope

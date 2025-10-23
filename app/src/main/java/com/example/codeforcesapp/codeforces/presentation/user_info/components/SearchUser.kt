@@ -1,6 +1,5 @@
-package com.example.codeforcesapp.codeforces.presentation.user_info
+package com.example.codeforcesapp.codeforces.presentation.user_info.components
 
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -22,10 +21,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import com.example.codeforcesapp.codeforces.data.CodeForcesAPIImpl
+import com.example.codeforcesapp.codeforces.presentation.user_info.UserInfoActions
 import com.example.codeforcesapp.ui.theme.CodeforcesAppTheme
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 @Composable
 fun SearchUser(
@@ -51,11 +48,6 @@ fun SearchUser(
                 onActions(
                     UserInfoActions.OnSearchUserClick(handle = search.text)
                 )
-                //just for testing
-                /*GlobalScope.launch {
-                    CodeForcesAPIImpl(Http).getUser(search.text)
-                }
-                */
             },
             shape = RoundedCornerShape(15.dp),
             modifier = Modifier.padding(start = 10.dp)

@@ -11,14 +11,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.example.codeforcesapp.codeforces.core.data.networking.HttpClientFactory
-import com.example.codeforcesapp.codeforces.presentation.user_info.UserInfoScreen
 import com.example.codeforcesapp.codeforces.presentation.user_info.UserInfoViewModel
-import com.example.codeforcesapp.codeforces.presentation.user_info.UserScreen
-import com.example.codeforcesapp.codeforces.presentation.user_info.userUiPreview
+import com.example.codeforcesapp.codeforces.presentation.user_info.components.UserScreen
 import com.example.codeforcesapp.ui.theme.CodeforcesAppTheme
-import io.ktor.client.HttpClient
-import io.ktor.client.engine.cio.CIO
 import org.koin.androidx.compose.koinViewModel
 
 //for testing until implement koin di

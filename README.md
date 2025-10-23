@@ -3,11 +3,11 @@ Codeforces Android app
 
 ## Features
 - [ ] profile screen
-    - [ ] user info
+    - [x] user info
     - [ ] contest graph
     - [ ] problems rating graph
     - [ ] tags solved graph
-    - [ ] find users
+    - [x] find users
 - [ ] Upcoming contests
     - [ ] upcoming contests screen (calendar)
     - [ ] upcoming contests notifications

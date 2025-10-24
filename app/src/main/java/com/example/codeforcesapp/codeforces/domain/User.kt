@@ -22,6 +22,5 @@ data class User(
     val titlePhoto: String
 )
 /*
-avatar and titlePhoto are url -> needs to be change
 lastOnline and registration TimeSeconds are unix time format -> needs to be change
  */

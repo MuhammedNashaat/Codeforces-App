@@ -1,4 +1,4 @@
-package com.example.codeforcesapp.codeforces.presentation.user_info
+package com.example.codeforcesapp.codeforces.presentation.user_info.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -18,7 +18,6 @@ import androidx.compose.ui.unit.sp
 import com.example.codeforcesapp.codeforces.presentation.TextRank
 import com.example.codeforcesapp.codeforces.presentation.colorRating
 import com.example.codeforcesapp.codeforces.presentation.models.UserUi
-import com.example.codeforcesapp.codeforces.presentation.user_info.components.ProfilePhoto
 import com.example.codeforcesapp.ui.theme.CodeforcesAppTheme
 
 @Composable

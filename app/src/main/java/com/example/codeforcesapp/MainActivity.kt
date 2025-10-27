@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.codeforcesapp.codeforces.presentation.user_info.UserInfoViewModel
-import com.example.codeforcesapp.codeforces.presentation.user_info.components.UserScreen
+import com.example.codeforcesapp.codeforces.presentation.user_info.UserScreen
 import com.example.codeforcesapp.ui.theme.CodeforcesAppTheme
 import org.koin.androidx.compose.koinViewModel
 

@@ -3,6 +3,7 @@ package com.example.codeforcesapp.codeforces.presentation.user_info
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.codeforcesapp.codeforces.domain.CodeForcesAPI
+import com.example.codeforcesapp.codeforces.presentation.models.toContestUi
 import com.example.codeforcesapp.codeforces.presentation.models.toUserUi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -39,8 +40,13 @@ class UserInfoViewModel(
             _state.update { it.copy(isLoading = true) }
 
             _state.update { it.copy(isLoading = false,
-                userUi = codeForcesAPI.getUser(handles = handles).toUserUi()
+                userUi = codeForcesAPI.getUser(handles = handles).toUserUi(),
+                contestList = codeForcesAPI.getContestList().map { it.toContestUi() }
                 ) }
         }
+    }
+
+    private fun getContestList(){
+
     }
 }

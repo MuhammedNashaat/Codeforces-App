@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
+import com.example.codeforcesapp.codeforces.presentation.contest_list.ContestListScreen
 import com.example.codeforcesapp.codeforces.presentation.user_info.components.SearchUser
 import com.example.codeforcesapp.codeforces.presentation.user_info.components.UserInfoScreen
 import com.example.codeforcesapp.codeforces.presentation.user_info.components.userUiPreview
@@ -42,6 +43,15 @@ fun UserScreen(
         else if(state.userUi != null){
             UserInfoScreen(
                 userUi = state.userUi,
+                modifier = Modifier
+            )
+        }
+
+        /* for testing */
+        if(state.contestList != null)
+        {
+            ContestListScreen(
+                contestUiList = state.contestList,
                 modifier = Modifier
             )
         }

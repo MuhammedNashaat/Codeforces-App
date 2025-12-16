@@ -33,6 +33,7 @@ fun ContestListItem(
         Text(
             text = contestUi.name,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
+            style = MaterialTheme.typography.labelSmall,
             modifier = Modifier.padding(start = 10.dp)
                 .weight(3f)
         )
@@ -43,16 +44,19 @@ fun ContestListItem(
         ) {
             Text(
                 text = "Length",
-                color = MaterialTheme.colorScheme.onSurface
+                color = MaterialTheme.colorScheme.onSurface,
+                style = MaterialTheme.typography.labelSmall
             )
             Text(
                 text = contestUi.durationSeconds.toString(),
-                color = MaterialTheme.colorScheme.onSurface
+                color = MaterialTheme.colorScheme.onSurface,
+                style = MaterialTheme.typography.labelSmall
             )
         }
         Text(
             text = contestUi.phase,
             color = MaterialTheme.colorScheme.onSurface,
+            style = MaterialTheme.typography.labelSmall,
             modifier = Modifier.padding(end = 10.dp)
                 .weight(1f)
         )

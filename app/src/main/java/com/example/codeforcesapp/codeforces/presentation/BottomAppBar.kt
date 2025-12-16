@@ -58,6 +58,9 @@ fun BottomAppBar(
                 selected = selectedItemIndex == index,
                 onClick = {
                     selectedItemIndex = index
+                    /*
+                    the navigation controller is here
+                    */
                 },
                 icon = {
                     Icon(

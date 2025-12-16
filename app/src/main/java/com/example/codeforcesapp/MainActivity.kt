@@ -11,6 +11,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.codeforcesapp.codeforces.presentation.BottomAppBar
 import com.example.codeforcesapp.codeforces.presentation.user_info.UserInfoViewModel
 import com.example.codeforcesapp.codeforces.presentation.user_info.UserScreen
 import com.example.codeforcesapp.ui.theme.CodeforcesAppTheme
@@ -25,7 +26,10 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             CodeforcesAppTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Scaffold(
+                    modifier = Modifier.fillMaxSize(),
+                    bottomBar = { BottomAppBar() }
+                ) { innerPadding ->
                     /*UserInfoScreen(
                         userUi = userUiPreview,
                         modifier = Modifier.padding(innerPadding)

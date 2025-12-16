@@ -29,7 +29,8 @@ fun UserScreen(
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(10.dp),
-        modifier = modifier.verticalScroll(rememberScrollState())
+        modifier = modifier
+        //modifier = modifier.verticalScroll(rememberScrollState()) uncomment this line after contestList screen in a different composalbe
     ) {
         SearchUser(onActions = onActions)
         if(state.isLoading){

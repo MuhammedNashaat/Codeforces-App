@@ -14,12 +14,13 @@ fun ContestListScreen(
     modifier: Modifier
 ){
     LazyColumn(
-        verticalArrangement = Arrangement.spacedBy(2.dp)
+        verticalArrangement = Arrangement.spacedBy(5.dp),
+        modifier = modifier
     ) {
         items(contestUiList){ contestUi ->
             ContestListItem(
                 contestUi = contestUi,
-                modifier = modifier
+                modifier = Modifier
             )
         }
     }

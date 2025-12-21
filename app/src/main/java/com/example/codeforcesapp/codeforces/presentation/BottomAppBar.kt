@@ -19,34 +19,39 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.PreviewLightDark
+import androidx.navigation.NavController
 
 data class BottomNavigationItem(
     val title: String,
     val selectedIcon: ImageVector,
     val unselectedIcon: ImageVector,
+    val route: String
 )
 
 val items = listOf(
     BottomNavigationItem(
         title = "home",
         selectedIcon = Icons.Filled.Home,
-        unselectedIcon = Icons.Outlined.Home
+        unselectedIcon = Icons.Outlined.Home,
+        route = "UserScreen"
     ),
     BottomNavigationItem(
         title = "Search",
         selectedIcon = Icons.Filled.Search,
-        unselectedIcon = Icons.Outlined.Search
+        unselectedIcon = Icons.Outlined.Search,
+        route = "ContestListScreen" //this is for testing
     ),
     BottomNavigationItem(
         title = "Settings",
         selectedIcon = Icons.Filled.Settings,
-        unselectedIcon = Icons.Outlined.Settings
+        unselectedIcon = Icons.Outlined.Settings,
+        route = "Settings"
     ),
 )
 
 @Composable
 fun BottomAppBar(
-
+    navController: NavController
 ){
     var selectedItemIndex by rememberSaveable {
         mutableStateOf(0)
@@ -61,6 +66,7 @@ fun BottomAppBar(
                     /*
                     the navigation controller is here
                     */
+                    navController.navigate(bottomNavigationItem.route)
                 },
                 icon = {
                     Icon(
@@ -83,6 +89,8 @@ fun BottomAppBar(
 fun BottomAppBarPreview()
 {
     MaterialTheme{
-        BottomAppBar()
+        BottomAppBar(
+            navController = TODO()
+        )
     }
 }

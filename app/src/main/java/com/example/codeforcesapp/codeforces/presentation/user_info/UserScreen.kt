@@ -49,6 +49,7 @@ fun UserScreen(
         }
 
         /* for testing */
+        /*
         if(state.contestList != null)
         {
             ContestListScreen(
@@ -56,6 +57,7 @@ fun UserScreen(
                 modifier = Modifier
             )
         }
+        */
     }
 }
 

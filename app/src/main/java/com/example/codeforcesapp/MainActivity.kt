@@ -14,10 +14,10 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.codeforcesapp.codeforces.presentation.BottomAppBar
-import com.example.codeforcesapp.codeforces.presentation.contest_list.ContestListScreen
-import com.example.codeforcesapp.codeforces.presentation.user_info.UserInfoViewModel
-import com.example.codeforcesapp.codeforces.presentation.user_info.UserScreen
+import com.example.codeforcesapp.codeforces.user.presentation.BottomAppBar
+import com.example.codeforcesapp.codeforces.contest.presentation.contest_list.ContestListScreen
+import com.example.codeforcesapp.codeforces.user.presentation.user_info.UserInfoViewModel
+import com.example.codeforcesapp.codeforces.user.presentation.user_info.UserScreen
 import com.example.codeforcesapp.ui.theme.CodeforcesAppTheme
 import org.koin.androidx.compose.koinViewModel
 

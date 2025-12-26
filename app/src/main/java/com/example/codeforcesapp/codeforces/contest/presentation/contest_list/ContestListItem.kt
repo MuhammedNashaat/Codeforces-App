@@ -33,19 +33,19 @@ fun ContestListItem(
         Text(
             text = contestUi.name,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
-            style = MaterialTheme.typography.labelSmall,
+            style = MaterialTheme.typography.bodyLarge,
             modifier = Modifier.padding(start = 10.dp)
                 .weight(3f)
         )
         Text(
             text = contestUi.durationSeconds.toString(),
-            color = MaterialTheme.colorScheme.onSurface,
-            style = MaterialTheme.typography.labelSmall
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            style = MaterialTheme.typography.bodyLarge
         )
         Text(
             text = contestUi.phase,
-            color = MaterialTheme.colorScheme.onSurface,
-            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            style = MaterialTheme.typography.bodyLarge,
             modifier = Modifier.padding(end = 10.dp)
                 .weight(1f)
         )

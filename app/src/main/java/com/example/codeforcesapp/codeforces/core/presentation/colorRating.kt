@@ -1,4 +1,4 @@
-package com.example.codeforcesapp.codeforces.user.presentation
+package com.example.codeforcesapp.codeforces.core.presentation
 
 import androidx.compose.ui.graphics.Color
 import com.example.codeforcesapp.ui.theme.Orange

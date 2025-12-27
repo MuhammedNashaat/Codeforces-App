@@ -1,4 +1,4 @@
-package com.example.codeforcesapp.codeforces.user.presentation
+package com.example.codeforcesapp.codeforces.core.presentation
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
@@ -30,7 +30,7 @@ data class BottomNavigationItem(
 
 val items = listOf(
     BottomNavigationItem(
-        title = "home",
+        title = "Home",
         selectedIcon = Icons.Filled.Home,
         unselectedIcon = Icons.Outlined.Home,
         route = "UserScreen"

@@ -2,7 +2,7 @@ package com.example.codeforcesapp.codeforces.user.presentation.user_info
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.codeforcesapp.codeforces.user.domain.CodeForcesAPI
+import com.example.codeforcesapp.codeforces.core.domain.CodeForcesAPI
 import com.example.codeforcesapp.codeforces.contest.presentation.models.toContestUi
 import com.example.codeforcesapp.codeforces.user.presentation.models.toUserUi
 import kotlinx.coroutines.flow.MutableStateFlow

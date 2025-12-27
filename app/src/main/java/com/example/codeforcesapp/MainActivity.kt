@@ -14,7 +14,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.codeforcesapp.codeforces.user.presentation.BottomAppBar
+import com.example.codeforcesapp.codeforces.core.presentation.BottomAppBar
 import com.example.codeforcesapp.codeforces.contest.presentation.contest_list.ContestListScreen
 import com.example.codeforcesapp.codeforces.user.presentation.user_info.UserInfoViewModel
 import com.example.codeforcesapp.codeforces.user.presentation.user_info.UserScreen

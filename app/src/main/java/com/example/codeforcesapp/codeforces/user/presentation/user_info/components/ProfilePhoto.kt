@@ -16,7 +16,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.codeforcesapp.R
-import com.example.codeforcesapp.codeforces.user.presentation.colorRating
+import com.example.codeforcesapp.codeforces.core.presentation.colorRating
 import com.example.codeforcesapp.ui.theme.CodeforcesAppTheme
 
 @Composable

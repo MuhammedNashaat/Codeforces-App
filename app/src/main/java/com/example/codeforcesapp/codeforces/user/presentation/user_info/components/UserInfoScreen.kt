@@ -15,8 +15,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.codeforcesapp.codeforces.user.presentation.TextRank
-import com.example.codeforcesapp.codeforces.user.presentation.colorRating
+import com.example.codeforcesapp.codeforces.core.presentation.TextRank
+import com.example.codeforcesapp.codeforces.core.presentation.colorRating
 import com.example.codeforcesapp.codeforces.user.presentation.models.UserUi
 import com.example.codeforcesapp.ui.theme.CodeforcesAppTheme
 

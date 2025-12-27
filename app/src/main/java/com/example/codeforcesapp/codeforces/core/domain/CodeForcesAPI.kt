@@ -1,6 +1,7 @@
-package com.example.codeforcesapp.codeforces.user.domain
+package com.example.codeforcesapp.codeforces.core.domain
 
 import com.example.codeforcesapp.codeforces.contest.domain.Contest
+import com.example.codeforcesapp.codeforces.user.domain.User
 
 interface CodeForcesAPI {
     suspend fun getUser(handles: String): User

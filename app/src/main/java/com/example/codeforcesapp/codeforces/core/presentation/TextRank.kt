@@ -1,4 +1,4 @@
-package com.example.codeforcesapp.codeforces.user.presentation
+package com.example.codeforcesapp.codeforces.core.presentation
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable

@@ -1,4 +1,4 @@
-package com.example.codeforcesapp.codeforces.user.data
+package com.example.codeforcesapp.codeforces.core.data.networking
 
 import com.example.codeforcesapp.codeforces.contest.data.mappers.toContest
 import com.example.codeforcesapp.codeforces.user.data.mappers.toUser
@@ -6,7 +6,7 @@ import com.example.codeforcesapp.codeforces.contest.data.netwoking.dto.ContestDt
 import com.example.codeforcesapp.codeforces.contest.data.netwoking.dto.ContestResponseDto
 import com.example.codeforcesapp.codeforces.user.data.networking.dto.UserDto
 import com.example.codeforcesapp.codeforces.user.data.networking.dto.UserResponseDto
-import com.example.codeforcesapp.codeforces.user.domain.CodeForcesAPI
+import com.example.codeforcesapp.codeforces.core.domain.CodeForcesAPI
 import com.example.codeforcesapp.codeforces.contest.domain.Contest
 import com.example.codeforcesapp.codeforces.user.domain.User
 import io.ktor.client.HttpClient

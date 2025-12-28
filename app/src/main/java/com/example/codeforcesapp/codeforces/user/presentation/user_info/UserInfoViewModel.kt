@@ -38,7 +38,9 @@ class UserInfoViewModel(
 
             _state.update { it.copy(isLoading = false,
                 userUi = codeForcesAPI.getUser(handles = handles).toUserUi(),
-                contestList = codeForcesAPI.getContestList().map { it.toContestUi() }
+                contestList = codeForcesAPI.getContestList().map { it.toContestUi() },
+                //for testing
+                testSubmission = codeForcesAPI.getUserStatus(handles = handles)
                 ) }
         }
     }

@@ -8,6 +8,10 @@ import com.example.codeforcesapp.codeforces.user.data.networking.dto.UserDto
 import com.example.codeforcesapp.codeforces.user.data.networking.dto.UserResponseDto
 import com.example.codeforcesapp.codeforces.core.domain.CodeForcesAPI
 import com.example.codeforcesapp.codeforces.contest.domain.Contest
+import com.example.codeforcesapp.codeforces.user.data.mappers.toSubmission
+import com.example.codeforcesapp.codeforces.user.data.networking.dto.SubmissionDto
+import com.example.codeforcesapp.codeforces.user.data.networking.dto.SubmissionResponseDto
+import com.example.codeforcesapp.codeforces.user.domain.Submission
 import com.example.codeforcesapp.codeforces.user.domain.User
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
@@ -41,5 +45,16 @@ class CodeForcesAPIImpl(
         val contestDtoList : List<ContestDto> = responseDto.result
         val contestList: List<Contest> = contestDtoList.map { it.toContest() }
         return contestList
+    }
+
+    //////////////////////////////////////////////////////////
+    override suspend fun getUserStatus(handle: String): List<Submission> {
+        val result: HttpResponse = httpClient.get(
+            urlString = "https://codeforces.com/api/user.status?handle=${handle}"
+        )
+        val responseDto: SubmissionResponseDto = result.body()
+        val submissionDtoList: List<SubmissionDto> = responseDto.result
+        val submissionList: List<Submission> = submissionDtoList.map{ it.toSubmission() }
+        return submissionList
     }
 }

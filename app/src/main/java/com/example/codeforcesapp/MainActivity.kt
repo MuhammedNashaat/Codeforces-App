@@ -16,6 +16,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.codeforcesapp.codeforces.core.presentation.BottomAppBar
 import com.example.codeforcesapp.codeforces.contest.presentation.contest_list.ContestListScreen
+import com.example.codeforcesapp.codeforces.contest.presentation.contest_list.ContestListViewModel
 import com.example.codeforcesapp.codeforces.user.presentation.user_info.UserInfoViewModel
 import com.example.codeforcesapp.codeforces.user.presentation.user_info.UserScreen
 import com.example.codeforcesapp.ui.theme.CodeforcesAppTheme
@@ -35,6 +36,10 @@ class MainActivity : ComponentActivity() {
 
                     val viewModel = koinViewModel<UserInfoViewModel>()
                     val state by viewModel.state.collectAsStateWithLifecycle()
+
+                    val contestViewModel = koinViewModel<ContestListViewModel>()
+                    val contestState by contestViewModel.state.collectAsStateWithLifecycle()
+
                     val context = LocalContext.current
 
                     NavHost(
@@ -49,9 +54,10 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable("ContestListScreen"){
-                            if(state.contestList != null) {
+                            if(contestState.contestList != null) {
                                 ContestListScreen(
-                                    contestUiList = state.contestList!!, // check '!!'
+                                    //contestUiList = state.contestList!!, // check '!!'
+                                    contestUiList = contestState.contestList!!,
                                     modifier = Modifier.padding(innerPadding)
                                 )
                             }

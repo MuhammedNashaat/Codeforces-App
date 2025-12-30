@@ -11,5 +11,6 @@ data class UserInfoState(
     val isLoading: Boolean = false,
     //val searchFieldHandle: String? = null
     val contestList: List<ContestUi>? = null, //for testing only
-    val testSubmission: List<Submission>? = null
+    val testSubmission: List<Submission>? = null,
+    val counter800test: Int = 0
 )

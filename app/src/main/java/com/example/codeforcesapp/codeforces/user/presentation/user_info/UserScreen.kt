@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -27,7 +28,7 @@ fun UserScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(10.dp),
         modifier = modifier
-        //modifier = modifier.verticalScroll(rememberScrollState()) uncomment this line after contestList screen in a different composalbe
+        //modifier = modifier.verticalScroll(rememberScrollState()) uncomment this line after contestList screen in a different composable
     ) {
         SearchUser(onActions = onActions)
         if(state.isLoading){

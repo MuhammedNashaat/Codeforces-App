@@ -45,17 +45,6 @@ fun UserScreen(
                 modifier = Modifier
             )
         }
-
-        /* for testing */
-        /*
-        if(state.contestList != null)
-        {
-            ContestListScreen(
-                contestUiList = state.contestList,
-                modifier = Modifier
-            )
-        }
-        */
     }
 }
 

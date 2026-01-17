@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Codeforces App</string>
+    <string name="error_request_timeout">Request timeout</string>
+    <string name="error_too_many_requests">Too many requests</string>
+    <string name="error_no_internet">No internet, Check your connection</string>
+    <string name="error_unknown">Check your internet connection</string>
 </resources>

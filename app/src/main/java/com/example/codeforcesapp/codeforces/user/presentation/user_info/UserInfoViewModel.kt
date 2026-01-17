@@ -2,8 +2,13 @@ package com.example.codeforcesapp.codeforces.user.presentation.user_info
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.codeforcesapp.ToastController
 import com.example.codeforcesapp.codeforces.core.domain.CodeForcesAPI
 import com.example.codeforcesapp.codeforces.contest.presentation.models.toContestUi
+import com.example.codeforcesapp.codeforces.core.domain.util.Result
+import com.example.codeforcesapp.codeforces.core.domain.util.onError
+import com.example.codeforcesapp.codeforces.core.domain.util.onSuccess
+import com.example.codeforcesapp.codeforces.core.presentation.util.errorToString
 import com.example.codeforcesapp.codeforces.user.domain.Submission
 import com.example.codeforcesapp.codeforces.user.presentation.models.toUserUi
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -24,23 +29,25 @@ class UserInfoViewModel(
         }
     }
 
-    private fun getUserInfo(handles: String){
+    private fun getUserInfo(handles: String)
+    {
         viewModelScope.launch {
             _state.update { it.copy(isLoading = true) }
-
-            _state.update { it.copy(isLoading = false,
-                userUi = codeForcesAPI.getUser(handles = handles).toUserUi(),
-                //for testing
-                testSubmission = codeForcesAPI.getUserStatus(handles = handles)
-                ) }
-
-            _state.update {
-                it.copy(counter800test = calc800Testing(it.testSubmission) )
+            when(val result = codeForcesAPI.getUser(handles = handles)){
+                is Result.Error -> {
+                    ToastController.sendEvent(result.error)
+                }
+                is Result.Success->{
+                    _state.update {
+                        it.copy(
+                            isLoading = false,
+                            userUi = result.data.toUserUi()
+                        )
+                    }
+                }
             }
         }
     }
-
-
 
     private fun calc800Testing(submissions:List<Submission>?):Int
     {

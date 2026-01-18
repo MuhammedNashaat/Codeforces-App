@@ -34,12 +34,18 @@ class MainActivity : ComponentActivity() {
             CodeforcesAppTheme {
                 val navController = rememberNavController()
                 val context = LocalContext.current
-                ObserveAsEvent(events = ToastController.event) {
-                    Toast.makeText(
-                        context,
-                        it.errorToString(context),
-                        Toast.LENGTH_SHORT
-                    ).show()
+                ObserveAsEvent(events = ToastController.event) { event ->
+                    when (event) {
+                        is ToastEvent.ApiFailure -> TODO()
+                        is ToastEvent.KtorError -> {
+                            Toast.makeText(
+                                context,
+                                event.event.errorToString(context),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+
                 }
 
                 Scaffold(

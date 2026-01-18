@@ -3,6 +3,7 @@ package com.example.codeforcesapp.codeforces.user.presentation.user_info
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.codeforcesapp.ToastController
+import com.example.codeforcesapp.ToastEvent
 import com.example.codeforcesapp.codeforces.core.domain.CodeForcesAPI
 import com.example.codeforcesapp.codeforces.contest.presentation.models.toContestUi
 import com.example.codeforcesapp.codeforces.core.domain.util.Result
@@ -35,7 +36,7 @@ class UserInfoViewModel(
             _state.update { it.copy(isLoading = true) }
             when(val result = codeForcesAPI.getUser(handles = handles)){
                 is Result.Error -> {
-                    ToastController.sendEvent(result.error)
+                    ToastController.sendEvent(ToastEvent.KtorError(event = result.error))
                 }
                 is Result.Success->{
                     _state.update {

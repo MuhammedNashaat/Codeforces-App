@@ -3,6 +3,7 @@ package com.example.codeforcesapp.codeforces.contest.presentation.contest_list
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.codeforcesapp.ToastController
+import com.example.codeforcesapp.ToastEvent
 import com.example.codeforcesapp.codeforces.contest.domain.Contest
 import com.example.codeforcesapp.codeforces.contest.presentation.models.toContestUi
 import com.example.codeforcesapp.codeforces.core.domain.CodeForcesAPI
@@ -29,10 +30,9 @@ class ContestListViewModel(
 
     private fun getContestList(){
         viewModelScope.launch {
-            //val result:Result<List<Contest>,NetworkError>
             when(val result = codeForcesAPI.getContestList()){
                 is Result.Error -> {
-                    ToastController.sendEvent(result.error)
+                    ToastController.sendEvent(ToastEvent.KtorError(event = result.error))
                 }
                 is Result.Success -> {
                     _state.update {

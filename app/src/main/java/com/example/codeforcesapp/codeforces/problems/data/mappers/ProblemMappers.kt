@@ -1,9 +1,9 @@
-package com.example.codeforcesapp.codeforces.user.data.mappers
+package com.example.codeforcesapp.codeforces.problems.data.mappers
 
-import com.example.codeforcesapp.codeforces.user.data.networking.dto.ProblemDto
-import com.example.codeforcesapp.codeforces.user.domain.Problem
+import com.example.codeforcesapp.codeforces.problems.data.networking.dto.ProblemDto
+import com.example.codeforcesapp.codeforces.problems.domain.Problem
 
-fun ProblemDto.toProblem():Problem{
+fun ProblemDto.toProblem(): Problem {
     return Problem(
         contestId = this.contestId,
         problemsetName = this.problemsetName,

@@ -20,6 +20,8 @@ import com.example.codeforcesapp.codeforces.core.presentation.BottomAppBar
 import com.example.codeforcesapp.codeforces.contest.presentation.contest_list.ContestListScreen
 import com.example.codeforcesapp.codeforces.contest.presentation.contest_list.ContestListViewModel
 import com.example.codeforcesapp.codeforces.core.presentation.util.errorToString
+import com.example.codeforcesapp.codeforces.problems.presentation.problems_list.ProblemListScreen
+import com.example.codeforcesapp.codeforces.problems.presentation.problems_list.ProblemListViewModel
 import com.example.codeforcesapp.codeforces.user.presentation.user_info.UserInfoViewModel
 import com.example.codeforcesapp.codeforces.user.presentation.user_info.UserScreen
 import com.example.codeforcesapp.ui.theme.CodeforcesAppTheme
@@ -59,6 +61,8 @@ class MainActivity : ComponentActivity() {
                     val contestViewModel = koinViewModel<ContestListViewModel>()
                     val contestState by contestViewModel.state.collectAsStateWithLifecycle()
 
+                    val problemListViewModel = koinViewModel<ProblemListViewModel>()
+                    val problemListState by problemListViewModel.state.collectAsStateWithLifecycle()
 
                     NavHost(
                         navController = navController,
@@ -81,6 +85,17 @@ class MainActivity : ComponentActivity() {
                             }
                             else{
                                 Row {  }
+                            }
+                        }
+                        composable("Settings"){
+                            if(problemListState.problemList != null) {
+                                ProblemListScreen(
+                                    state = problemListState,
+                                    modifier = Modifier.padding(innerPadding)
+                                )
+                            }
+                            else{
+                                Row{ }
                             }
                         }
                     }

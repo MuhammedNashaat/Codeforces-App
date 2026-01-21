@@ -1,5 +1,6 @@
 package com.example.codeforcesapp.codeforces.user.data.networking.dto
 
+import com.example.codeforcesapp.codeforces.problems.data.networking.dto.ProblemDto
 import kotlinx.serialization.Serializable
 
 @Serializable

@@ -1,5 +1,7 @@
 package com.example.codeforcesapp.codeforces.user.domain
 
+import com.example.codeforcesapp.codeforces.problems.domain.Problem
+
 data class Submission (
     val id: Int,
     val contestId: Int? = null,

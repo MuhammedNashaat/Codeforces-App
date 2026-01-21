@@ -1,9 +1,6 @@
-package com.example.codeforcesapp.codeforces.user.data.networking.dto
+package com.example.codeforcesapp.codeforces.problems.domain
 
-import kotlinx.serialization.Serializable
-
-@Serializable
-data class ProblemDto(
+data class Problem(
     val contestId: Int? = null,
     val problemsetName: String = "",
     val index: String,
@@ -13,3 +10,8 @@ data class ProblemDto(
     val rating: Int? = null,
     val tags: List<String>
 )
+/*
+enum class TypeOfProblem{
+    PROGRAMMING,QUESTION
+}
+*/

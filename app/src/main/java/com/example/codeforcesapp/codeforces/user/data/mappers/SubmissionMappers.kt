@@ -1,5 +1,6 @@
 package com.example.codeforcesapp.codeforces.user.data.mappers
 
+import com.example.codeforcesapp.codeforces.problems.data.mappers.toProblem
 import com.example.codeforcesapp.codeforces.user.data.networking.dto.SubmissionDto
 import com.example.codeforcesapp.codeforces.user.domain.Submission
 

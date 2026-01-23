@@ -5,6 +5,6 @@ import com.example.codeforcesapp.codeforces.problems.presentation.models.Problem
 
 @Immutable
 data class ProblemListState(
-    val isLoading: Boolean = true,
+    val isLoading: Boolean = false,
     val problemList: List<ProblemUi>? = null
 )

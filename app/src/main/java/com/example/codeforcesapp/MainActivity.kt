@@ -76,27 +76,17 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable("ContestListScreen"){
-                            if(contestState.contestList != null) {
-                                ContestListScreen(
-                                    //contestUiList = state.contestList!!, // check '!!'
-                                    contestUiList = contestState.contestList!!,
-                                    modifier = Modifier.padding(innerPadding)
-                                )
-                            }
-                            else{
-                                Row {  }
-                            }
+                            ContestListScreen(
+                                //contestUiList = state.contestList!!, // check '!!'
+                                state = contestState,
+                                modifier = Modifier.padding(innerPadding)
+                            )
                         }
                         composable("Settings"){
-                            if(problemListState.problemList != null) {
-                                ProblemListScreen(
-                                    state = problemListState,
-                                    modifier = Modifier.padding(innerPadding)
-                                )
-                            }
-                            else{
-                                Row{ }
-                            }
+                            ProblemListScreen(
+                                state = problemListState,
+                                modifier = Modifier.padding(innerPadding)
+                            )
                         }
                     }
                 }

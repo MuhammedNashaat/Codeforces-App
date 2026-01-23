@@ -29,14 +29,17 @@ class ProblemListViewModel(
 
     private fun getProblemList(tags: List<String>){
         viewModelScope.launch {
+            _state.update { it.copy(isLoading = true) }
+
             when (val result = codeForcesAPI.getProblemsSet(tags)){
                 is Result.Error -> {
                     ToastController.sendEvent(ToastEvent.KtorError(event = result.error))
+                    _state.update { it.copy(isLoading = false) }
                 }
                 is Result.Success -> {
                     _state.update {
                         it.copy(
-                            isLoading = true,
+                            isLoading = false,
                             problemList = result.data.map {it.toProblemUi()}
                         )
                     }

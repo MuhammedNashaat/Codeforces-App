@@ -30,6 +30,8 @@ class ContestListViewModel(
 
     private fun getContestList(){
         viewModelScope.launch {
+            _state.update { it.copy(isLoading = true) }
+
             when(val result = codeForcesAPI.getContestList()){
                 is Result.Error -> {
                     ToastController.sendEvent(ToastEvent.KtorError(event = result.error))
@@ -37,7 +39,8 @@ class ContestListViewModel(
                 is Result.Success -> {
                     _state.update {
                         it.copy(
-                            contestList = result.data.map { it.toContestUi() }
+                            contestList = result.data.map { it.toContestUi() },
+                            isLoading = false
                         )
                     }
                 }

@@ -17,7 +17,7 @@ fun ProblemListScreen(
     state: ProblemListState,
     modifier: Modifier = Modifier
 ){
-    if(state.isLoading) {
+    if(state.isLoading || state.problemList == null) {
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center,

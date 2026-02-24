@@ -7,7 +7,7 @@ data class Problem(
     val name: String,
     val type: String,
     val points: Float = 0f,
-    val rating: Int? = null,
+    val rating: Int = 0,
     val tags: List<String>
 )
 /*

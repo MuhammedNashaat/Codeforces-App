@@ -31,7 +31,7 @@ fun UserScreen(
         //modifier = modifier.verticalScroll(rememberScrollState()) uncomment this line after contestList screen in a different composable
     ) {
         SearchUser(onActions = onActions)
-        if(state.isLoading){
+        if(state.isLoadingUserInfo){
             Box(
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center,
@@ -40,10 +40,16 @@ fun UserScreen(
             }
         }
         else if(state.userUi != null){
-            UserInfoScreen(
-                userUi = state.userUi,
-                modifier = Modifier
-            )
+            Column {
+                UserInfoScreen(
+                    userUi = state.userUi,
+                    modifier = Modifier
+                )
+                Text(
+                    text = state.userSubmissionRating.toString()
+                )
+            }
+
         }
     }
 }
@@ -56,7 +62,7 @@ fun UserScreenPreview()
         UserScreen(
             state = UserInfoState(
                 userUi = userUiPreview,
-                isLoading = false,
+                isLoadingUserInfo = false,
             ),
             modifier = Modifier.background(color = MaterialTheme.colorScheme.background),
             onActions = {}

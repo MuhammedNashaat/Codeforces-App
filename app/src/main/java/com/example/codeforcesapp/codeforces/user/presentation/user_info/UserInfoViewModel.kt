@@ -5,11 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.codeforcesapp.ToastController
 import com.example.codeforcesapp.ToastEvent
 import com.example.codeforcesapp.codeforces.core.domain.CodeForcesAPI
-import com.example.codeforcesapp.codeforces.contest.presentation.models.toContestUi
 import com.example.codeforcesapp.codeforces.core.domain.util.Result
-import com.example.codeforcesapp.codeforces.core.domain.util.onError
-import com.example.codeforcesapp.codeforces.core.domain.util.onSuccess
-import com.example.codeforcesapp.codeforces.core.presentation.util.errorToString
 import com.example.codeforcesapp.codeforces.user.domain.Submission
 import com.example.codeforcesapp.codeforces.user.presentation.models.toUserUi
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -26,6 +22,7 @@ class UserInfoViewModel(
         when (actions){
             is UserInfoActions.OnSearchUserClick -> {
                 getUserInfo(actions.handle)
+                getUserStatus(actions.handle)
             }
         }
     }
@@ -33,7 +30,7 @@ class UserInfoViewModel(
     private fun getUserInfo(handles: String)
     {
         viewModelScope.launch {
-            _state.update { it.copy(isLoading = true) }
+            _state.update { it.copy(isLoadingUserInfo = true) }
             when(val result = codeForcesAPI.getUser(handles = handles)){
                 is Result.Error -> {
                     ToastController.sendEvent(ToastEvent.KtorError(event = result.error))
@@ -41,7 +38,7 @@ class UserInfoViewModel(
                 is Result.Success->{
                     _state.update {
                         it.copy(
-                            isLoading = false,
+                            isLoadingUserInfo = false,
                             userUi = result.data.toUserUi()
                         )
                     }
@@ -60,7 +57,42 @@ class UserInfoViewModel(
                     counter++
             }
         }
-
         return counter
+    }
+
+    private fun calculateRating(submissions: List<Submission>):MutableMap<Int,Int>
+    {
+        val ratingMap: MutableMap<Int,Int> = mutableMapOf<Int,Int>()
+        for ( i in submissions) {
+            if(i.verdict == "OK"  && i.problem.rating != 0) {
+                ratingMap[i.problem.rating] = ratingMap.getOrDefault(i.problem.rating,0) +1
+            }
+        }
+        return ratingMap
+    }
+
+    private fun getUserStatus(handles: String)
+    {
+        viewModelScope.launch {
+            _state.update { it.copy(isLoadingUserSubmissions = true) }
+            when(val result = codeForcesAPI.getUserStatus(handles = handles)){
+                is Result.Error -> {
+                    ToastController.sendEvent(ToastEvent.KtorError(event = result.error))
+                }
+                is Result.Success->{
+                    _state.update {
+                        it.copy(
+                            isLoadingUserSubmissions = false,
+                            submission = result.data, // should be List<SubmissionUi>
+                        )
+                    }
+                    _state.update {
+                        it.copy(
+                            userSubmissionRating = calculateRating(it.submission)
+                        )
+                    }
+                }
+            }
+        }
     }
 }

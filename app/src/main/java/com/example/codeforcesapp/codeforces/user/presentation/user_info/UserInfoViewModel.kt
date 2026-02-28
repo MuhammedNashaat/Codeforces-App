@@ -47,19 +47,6 @@ class UserInfoViewModel(
         }
     }
 
-    private fun calc800Testing(submissions:List<Submission>?):Int
-    {
-        var counter = 0
-        if (submissions != null) {
-            for ( i in submissions)
-            {
-                if(i.problem.rating == 900 && i.verdict == "OK" )
-                    counter++
-            }
-        }
-        return counter
-    }
-
     private fun calculateRating(submissions: List<Submission>):MutableMap<Int,Int>
     {
         val ratingMap: MutableMap<Int,Int> = mutableMapOf<Int,Int>()

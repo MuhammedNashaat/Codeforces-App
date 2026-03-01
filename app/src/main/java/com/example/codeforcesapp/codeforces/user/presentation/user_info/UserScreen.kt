@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import com.example.codeforcesapp.codeforces.user.presentation.user_info.components.SearchUser
 import com.example.codeforcesapp.codeforces.user.presentation.user_info.components.SubmissionChart
 import com.example.codeforcesapp.codeforces.user.presentation.user_info.components.UserInfoScreen
+import com.example.codeforcesapp.codeforces.user.presentation.user_info.components.ratingChange.RatingChangeScreen
 import com.example.codeforcesapp.codeforces.user.presentation.user_info.components.userUiPreview
 import com.example.codeforcesapp.ui.theme.CodeforcesAppTheme
 
@@ -51,6 +52,11 @@ fun UserScreen(
                 SubmissionChart(
                     modifier = Modifier,
                     map = state.userSubmissionRating.toSortedMap()
+                )
+                
+                RatingChangeScreen(
+                    state = state,
+                    modifier = Modifier
                 )
             }
         }

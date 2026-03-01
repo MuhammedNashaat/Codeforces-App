@@ -7,6 +7,7 @@ import com.example.codeforcesapp.ToastEvent
 import com.example.codeforcesapp.codeforces.core.domain.CodeForcesAPI
 import com.example.codeforcesapp.codeforces.core.domain.util.Result
 import com.example.codeforcesapp.codeforces.user.domain.Submission
+import com.example.codeforcesapp.codeforces.user.presentation.models.toRatingChangeUi
 import com.example.codeforcesapp.codeforces.user.presentation.models.toUserUi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
@@ -23,6 +24,7 @@ class UserInfoViewModel(
             is UserInfoActions.OnSearchUserClick -> {
                 getUserInfo(actions.handle)
                 getUserStatus(actions.handle)
+                getUserRating(actions.handle)
             }
         }
     }
@@ -49,7 +51,7 @@ class UserInfoViewModel(
 
     private fun calculateRating(submissions: List<Submission>):MutableMap<Int,Int>
     {
-        val ratingMap: MutableMap<Int,Int> = mutableMapOf<Int,Int>()
+        val ratingMap: MutableMap<Int,Int> = mutableMapOf()
         for ( i in submissions) {
             if(i.verdict == "OK"  && i.problem.rating != 0) {
                 ratingMap[i.problem.rating] = ratingMap.getOrDefault(i.problem.rating,0) +1
@@ -76,6 +78,26 @@ class UserInfoViewModel(
                     _state.update {
                         it.copy(
                             userSubmissionRating = calculateRating(it.submission)
+                        )
+                    }
+                }
+            }
+        }
+    }
+
+    private fun getUserRating(handles: String)
+    {
+        viewModelScope.launch {
+            _state.update { it.copy(isLoadingRatingChange = true) }
+            when(val result = codeForcesAPI.getUserRating(handles = handles)){
+                is Result.Error -> {
+                    ToastController.sendEvent(ToastEvent.KtorError(event = result.error))
+                }
+                is Result.Success->{
+                    _state.update {
+                        it.copy(
+                            isLoadingRatingChange = false,
+                            ratingChangeUi = result.data.map { it.toRatingChangeUi() }.reversed()
                         )
                     }
                 }

@@ -42,7 +42,7 @@ fun ContestListItem(
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             style = MaterialTheme.typography.bodyLarge
         )
-        Text(
+            Text(
             text = contestUi.phase,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             style = MaterialTheme.typography.bodyLarge,

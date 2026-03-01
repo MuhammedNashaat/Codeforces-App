@@ -13,6 +13,9 @@ import com.example.codeforcesapp.codeforces.user.data.mappers.toSubmission
 import com.example.codeforcesapp.codeforces.problems.data.networking.dto.ProblemSetResponseDto
 import com.example.codeforcesapp.codeforces.user.data.networking.dto.SubmissionResponseDto
 import com.example.codeforcesapp.codeforces.problems.domain.Problem
+import com.example.codeforcesapp.codeforces.user.data.mappers.toRatingChange
+import com.example.codeforcesapp.codeforces.user.data.networking.dto.RatingChangeResponseDto
+import com.example.codeforcesapp.codeforces.user.domain.RatingChange
 import com.example.codeforcesapp.codeforces.user.domain.Submission
 import com.example.codeforcesapp.codeforces.user.domain.User
 import io.ktor.client.HttpClient
@@ -45,7 +48,6 @@ class CodeForcesAPIImpl(
     }
     //////////////////////////////////////////////////////////
     override suspend fun getUserStatus(handles: String): Result<List<Submission>,NetworkError> {
-        //need to get tested
         val result: Result<SubmissionResponseDto,NetworkError> = safeCall {  httpClient.get(
             urlString = "https://codeforces.com/api/user.status?handle=${handles}"
         )}
@@ -65,6 +67,16 @@ class CodeForcesAPIImpl(
             is Result.Error -> Result.Error(error = result.error)
             is Result.Success -> Result.Success(data = result.data.result.problems.map{it.toProblem()})
             //need to check null
+        }
+    }
+    //////////////////////////////////////////////////////////
+    override suspend fun getUserRating(handles: String): Result<List<RatingChange>,NetworkError> {
+        val result: Result<RatingChangeResponseDto,NetworkError> = safeCall {  httpClient.get(
+            urlString = "https://codeforces.com/api/user.rating?handle=${handles}"
+        )}
+        return when(result){
+            is Result.Error -> Result.Error(error = result.error)
+            is Result.Success -> Result.Success(data = result.data.result.map { it.toRatingChange() })
         }
     }
 }

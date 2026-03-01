@@ -1,9 +1,13 @@
 package com.example.codeforcesapp.codeforces.core.presentation
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.outlined.Check
+import androidx.compose.material.icons.outlined.DateRange
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material.icons.outlined.Settings
@@ -30,22 +34,22 @@ data class BottomNavigationItem(
 
 val items = listOf(
     BottomNavigationItem(
-        title = "Home",
-        selectedIcon = Icons.Filled.Home,
-        unselectedIcon = Icons.Outlined.Home,
-        route = "UserScreen"
-    ),
-    BottomNavigationItem(
         title = "Search",
         selectedIcon = Icons.Filled.Search,
         unselectedIcon = Icons.Outlined.Search,
+        route = "UserScreen"
+    ),
+    BottomNavigationItem(
+        title = "Contests",
+        selectedIcon = Icons.Filled.DateRange,
+        unselectedIcon = Icons.Outlined.DateRange,
         route = "ContestListScreen" //this is for testing
     ),
     BottomNavigationItem(
-        title = "Settings",
-        selectedIcon = Icons.Filled.Settings,
-        unselectedIcon = Icons.Outlined.Settings,
-        route = "Settings"
+        title = "Problems",
+        selectedIcon = Icons.Filled.Check,
+        unselectedIcon = Icons.Outlined.Check,
+        route = "Problems"
     ),
 )
 

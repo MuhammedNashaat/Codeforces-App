@@ -82,7 +82,7 @@ class MainActivity : ComponentActivity() {
                                 modifier = Modifier.padding(innerPadding)
                             )
                         }
-                        composable("Settings"){
+                        composable("Problems"){
                             ProblemListScreen(
                                 state = problemListState,
                                 modifier = Modifier.padding(innerPadding)

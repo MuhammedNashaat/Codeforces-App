@@ -37,11 +37,13 @@ fun ContestListItem(
             modifier = Modifier.padding(start = 10.dp)
                 .weight(3f)
         )
+        /*
+        need to change time from unix to readable form first
         Text(
             text = contestUi.durationSeconds.toString(),
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             style = MaterialTheme.typography.bodyLarge
-        )
+        )*/
             Text(
             text = contestUi.phase,
             color = MaterialTheme.colorScheme.onSurfaceVariant,

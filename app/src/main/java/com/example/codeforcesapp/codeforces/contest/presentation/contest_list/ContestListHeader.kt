@@ -31,11 +31,13 @@ fun ContestListHeader() {
             modifier = Modifier.padding(start = 10.dp)
                 .weight(3f)
         )
+        /*
+        need to change time from unix to readable form first
         Text(
             text = "Length",
             color = MaterialTheme.colorScheme.onPrimaryContainer,
             style = MaterialTheme.typography.bodyLarge
-        )
+        )*/
         Text(
             text = "Phase",
             color = MaterialTheme.colorScheme.onPrimaryContainer,

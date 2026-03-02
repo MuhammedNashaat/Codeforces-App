@@ -6,6 +6,7 @@ import com.example.codeforcesapp.codeforces.core.data.networking.CodeForcesAPIIm
 import com.example.codeforcesapp.codeforces.user.presentation.user_info.UserInfoViewModel
 import com.example.codeforcesapp.codeforces.contest.presentation.contest_list.ContestListViewModel
 import com.example.codeforcesapp.codeforces.problems.presentation.problems_list.ProblemListViewModel
+import com.example.codeforcesapp.codeforces.profile.presentation.ProfileViewModel
 import io.ktor.client.engine.cio.CIO
 import org.koin.androidx.viewmodel.dsl.viewModelOf
 import org.koin.core.module.dsl.singleOf
@@ -19,4 +20,5 @@ val appModule = module {
     viewModelOf(::UserInfoViewModel)
     viewModelOf(::ContestListViewModel)
     viewModelOf(::ProblemListViewModel)
+    viewModelOf(::ProfileViewModel)
 }

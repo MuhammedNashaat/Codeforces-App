@@ -22,6 +22,8 @@ import com.example.codeforcesapp.codeforces.contest.presentation.contest_list.Co
 import com.example.codeforcesapp.codeforces.core.presentation.util.errorToString
 import com.example.codeforcesapp.codeforces.problems.presentation.problems_list.ProblemListScreen
 import com.example.codeforcesapp.codeforces.problems.presentation.problems_list.ProblemListViewModel
+import com.example.codeforcesapp.codeforces.profile.presentation.ProfileScreen
+import com.example.codeforcesapp.codeforces.profile.presentation.ProfileViewModel
 import com.example.codeforcesapp.codeforces.user.presentation.user_info.UserInfoViewModel
 import com.example.codeforcesapp.codeforces.user.presentation.user_info.UserScreen
 import com.example.codeforcesapp.ui.theme.CodeforcesAppTheme
@@ -64,6 +66,9 @@ class MainActivity : ComponentActivity() {
                     val problemListViewModel = koinViewModel<ProblemListViewModel>()
                     val problemListState by problemListViewModel.state.collectAsStateWithLifecycle()
 
+                    val profileViewModel = koinViewModel<ProfileViewModel>()
+                    val profileState by profileViewModel.state.collectAsStateWithLifecycle()
+
                     NavHost(
                         navController = navController,
                         startDestination = "UserScreen"
@@ -85,6 +90,12 @@ class MainActivity : ComponentActivity() {
                         composable("Problems"){
                             ProblemListScreen(
                                 state = problemListState,
+                                modifier = Modifier.padding(innerPadding)
+                            )
+                        }
+                        composable("Profile"){
+                            ProfileScreen(
+                                state = profileState,
                                 modifier = Modifier.padding(innerPadding)
                             )
                         }

@@ -1,0 +1,21 @@
+package com.example.codeforcesapp.codeforces.profile.presentation
+
+import androidx.compose.runtime.Immutable
+import com.example.codeforcesapp.codeforces.user.domain.Submission
+import com.example.codeforcesapp.codeforces.user.presentation.models.RatingChangeUi
+import com.example.codeforcesapp.codeforces.user.presentation.models.UserUi
+
+@Immutable
+//this class should be deleted
+data class ProfileState(
+    val userUi: UserUi? = null,
+    val isLoadingUserInfo: Boolean = false,
+
+    val submission: List<Submission> = emptyList(),
+    val isLoadingUserSubmissions: Boolean = false,
+    val userSubmissionRating: MutableMap<Int,Int> = mutableMapOf<Int,Int>(),
+
+    val ratingChangeUi: List<RatingChangeUi> = emptyList(),
+    val isLoadingRatingChange: Boolean = false
+
+)

@@ -1,7 +1,7 @@
 # Codeforces-App
-Codeforces Android app
+Codeforces Android app to enhance the experience for users of Codeforces.com 
 
-##Screenshots
+## Screenshots
 
 <img src="screenshots/ProfileDark.png" alt="Profile DarkMode" />
 <img src="screenshots/searchLight.png" alt="Search LightMode" />
